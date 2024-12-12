@@ -1,28 +1,47 @@
 import React from 'react';
+import Logo from '~/assets/Logo.svg'
+import HeaderSearch from '~/assets/HeaderSearch.svg'
 // 模块化导入样式
 import styles from './index.module.scss'
-import { LaptopOutlined, NotificationOutlined, UserOutlined } from '@ant-design/icons';
+import { LaptopOutlined, NotificationOutlined, SearchOutlined, UserOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
-import { Breadcrumb, Layout, Menu, theme } from 'antd';
+import { Breadcrumb, Input, Layout, Menu, theme } from 'antd';
 import { Outlet } from '@remix-run/react';
 import CustomMenu from '~/components/Sider/Menu';
 
 const { Header, Content, Sider } = Layout;
-
-
+const { Search } = Input;
 
 
 export default function CustomLayout() {
-    // const {
-    //     token: { colorBgContainer, borderRadiusLG },
-    //   } = theme.useToken();
+    // 顶部导航栏
+    const navContent: string[] = ["文档", "社群", "官网", "客服"]
+
+    const onSearch = () => {
+      console.log("搜索");
+      
+    }
     return (
       <>
          <Layout className={styles.layout}>
-            <Header style={{ display: 'flex', alignItems: 'center', height: 70 }} className={styles.custom_header}>
-                <div className="demo-logo" />
+            <Header style={{ display: 'flex' }} className={styles.custom_header}>
+                <div className={styles.Logo} >
+                  <img src={Logo} alt="Logo" />
+                </div>
                 <div>
-                  1323
+                <Input
+                  className={styles.custom_input}
+                  prefix={<SearchOutlined />}
+                  placeholder="输入内容"
+                />
+                </div>
+                <div className={styles.nav}>
+                  {/* 循环navContent */}
+                  {
+                    navContent.map((item: string) => {
+                      return <span>{item}</span>
+                    })
+                  }
                 </div>
             </Header>
             <Layout className={styles.footer}>
