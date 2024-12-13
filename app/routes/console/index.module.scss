@@ -1,0 +1,99 @@
+.console_container {
+  display: flex;
+  justify-content: space-between;
+  gap: 50px;
+
+  h1 {
+      font-size: 30px;
+      font-weight: bold;
+    }
+  .left {
+    // flex暂居 2/3
+    flex: 2;
+
+
+    .custom_row {
+        width: 100%;
+        gap: 16px;
+
+
+
+        .custom_gutter_row {
+          background-color: rgb(249, 249, 249);
+          padding: 10px 2px 5px 5px;
+          height: 125px;
+          border-radius: 5px;
+          border: 1px solid rgb(233,236,239);
+          overflow: hidden;
+
+          h2 {
+            font-weight: bold;
+          }
+
+          .num {
+            font-size: 30px;
+            font-weight: bold;
+          }
+          .percentage {
+            color: rgb(18,184,134);
+            display: flex;
+          }
+
+            &:nth-child(1) {
+              background-color: rgb(231, 245, 255);
+            }
+            &:nth-child(4) {
+              background-color: rgb(230, 252, 245);
+            }
+            &:nth-child(7) {
+              background-color: rgb(255, 245, 245);
+            }
+        }
+      }
+  }
+  .right {
+    flex: 1;
+    .custom_card {
+      width: 70%;
+      border-radius: 10px;
+      border: 1px solid rgb(177, 177, 177);
+      padding: 20px;
+
+      h3 {
+        font-size: 16px;
+        font-weight: bold;
+      }
+
+      .content_scroll {
+        margin-top: 10px;
+        max-height: 200px;
+        overflow: scroll;
+
+       // 去掉滚动条
+        &::-webkit-scrollbar {
+          display: none;
+        }
+
+        & > div {
+          display: flex;
+          justify-content: space-between;
+          
+        }
+        .date {
+          color: gray;
+        }
+      }
+
+      .custom_btn {
+        margin-top: 20px;
+        padding: 0 5px;
+        border-radius: 10px;
+        border: 1px solid black;
+        color: black;
+        font-size: 14px;
+        font-weight: bold;
+      }
+ 
+    }
+  }
+}

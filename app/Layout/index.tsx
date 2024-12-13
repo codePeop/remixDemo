@@ -1,16 +1,12 @@
-import React from 'react';
 import Logo from '~/assets/Logo.svg'
-import HeaderSearch from '~/assets/HeaderSearch.svg'
 // 模块化导入样式
 import styles from './index.module.scss'
-import { LaptopOutlined, NotificationOutlined, SearchOutlined, UserOutlined } from '@ant-design/icons';
-import type { MenuProps } from 'antd';
-import { Breadcrumb, Input, Layout, Menu, theme } from 'antd';
+import { SearchOutlined } from '@ant-design/icons';
+import {  Input, Layout } from 'antd';
 import { Outlet } from '@remix-run/react';
 import CustomMenu from '~/components/Sider/Menu';
 
 const { Header, Content, Sider } = Layout;
-const { Search } = Input;
 
 
 export default function CustomLayout() {
@@ -38,15 +34,15 @@ export default function CustomLayout() {
                 <div className={styles.nav}>
                   {/* 循环navContent */}
                   {
-                    navContent.map((item: string) => {
-                      return <span>{item}</span>
+                    navContent.map((item: string, index: number) => {
+                      return <span key={index}>{item}</span>
                     })
                   }
                 </div>
             </Header>
             <Layout className={styles.footer}>
                 <div className={styles.footer_container}>
-                    <Sider  className={styles.custom_sider}>
+              <Sider className={styles.custom_sider} width={'20%'}>
                       <CustomMenu />
                       <div>
                           头像

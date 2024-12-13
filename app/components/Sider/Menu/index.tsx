@@ -16,16 +16,21 @@ const items2: MenuProps['items'] = [
   },
 ];
 
-export default function CustomMenu() {
-  const [selectedKey, setSelectedKey] = useState('console');
+// 路由映射
+const routesBtnMap: any = {
+  console: '/console',
+  subscription: '/subscription',
+}
 
-  const handleMenuClick = (e) => {
-    console.log("打你");
+export default function CustomMenu() {
+  const [selectedKey, setSelectedKey] = useState('');
+
+  function handleMenuClick(e: any) {
+    console.log(e);
     
-    // console.log(e);
-    
-    // setSelectedKey(e.key);
-  };
+    setSelectedKey(e.key);
+    window.location.href = routesBtnMap[e.key]
+  }
   return (
     <>
       <Menu

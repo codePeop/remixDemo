@@ -3,7 +3,7 @@ import {
   Meta,
   Outlet,
   Scripts,
-  ScrollRestoration,
+  ScrollRestoration
 } from "@remix-run/react";
 import type { LinksFunction } from "@remix-run/node";
 
@@ -25,7 +25,10 @@ export const links: LinksFunction = () => [
   },
 ];
 
-export function Layout({ children }: { children: React.ReactNode }) {
+export function Layout() {
+  const test = () => {
+    console.log('test')
+  }
   return (
     <html lang="en">
       <head>
@@ -36,6 +39,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
       </head>
       <body>
         <CustomLayout />
+        <ScrollRestoration />
+        <Scripts />
       </body>
     </html>
   );
